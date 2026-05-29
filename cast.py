@@ -1,11 +1,11 @@
 """
 CAST (Cluster Affinity Search Technique).
 
-Zasnovan na konceptu pokvarenih klika — u idealnom slucaju, geni u istom klasteru
+Zasnovan na konceptu pokvarenih klika - u idealnom slucaju, geni u istom klasteru
 bi formirali klike u grafu slicnosti, ali greske u merenjima to narusavaju.
 CAST iterativno gradi klastere dodajuci theta-bliske i uklanjajuci theta-udaljene gene.
 
-Broj klastera nije zadat — proizilazi iz strukture podataka i parametra theta.
+Broj klastera nije zadat - proizilazi iz strukture podataka i parametra theta.
 """
 
 from utils import pearson_correlation, genes, gene_names
@@ -122,7 +122,7 @@ class CAST:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("CAST — test na podacima genske ekspresije")
+    print("CAST - test na podacima genske ekspresije")
     print("=" * 60)
 
     cast = CAST(theta=0.7)
@@ -141,7 +141,7 @@ if __name__ == '__main__':
         cast_t = CAST(theta=theta)
         clusters_t = cast_t.fit(data=genes)
         sizes = [len(c) for c in clusters_t]
-        print(f"  theta={theta:.2f} → {len(clusters_t)} klastera, velicine: {sizes}")
+        print(f"  theta={theta:.2f} -> {len(clusters_t)} klastera, velicine: {sizes}")
 
     print("\nMatrica Pearsonove korelacije (izvod 5x5):")
     R = cast.similarity_matrix

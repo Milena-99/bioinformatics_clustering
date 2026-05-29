@@ -98,7 +98,7 @@ expected_groups = {
     'Flat': ['YPR055W', 'GEN_FL1', 'GEN_FL2'],
 }
 
-# Tacke iz Slike 8.6 (desno) — osam tacaka u 2D prostoru iz udzbenika
+# Tacke iz Slike 8.6 (desno) - osam tacaka u 2D prostoru iz udzbenika
 points_2d = [
     [1, 6], [1, 3], [3, 4], [5, 6], [5, 2], [7, 1], [8, 7], [10, 3]
 ]
@@ -123,7 +123,7 @@ def print_clusters_by_labels(labels, names, title=None):
 if __name__ == '__main__':
     # Demonstracija pomocnih funkcija
     print("=" * 60)
-    print("utils.py — demonstracija pomocnih funkcija")
+    print("utils.py - demonstracija pomocnih funkcija")
     print("=" * 60)
 
     print(f"\nBroj gena: {len(genes)}")

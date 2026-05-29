@@ -1,5 +1,5 @@
 """
-FarthestFirstTraversal — heuristika za k-centar problem klasterovanja.
+FarthestFirstTraversal - heuristika za k-centar problem klasterovanja.
 
 Bira k centara iz skupa tacaka tako da minimizuje maksimalno rastojanje
 bilo koje tacke do njenog najblizeg centra. Garantuje 2-aproksimaciju.
@@ -17,7 +17,7 @@ class FarthestFirstTraversal:
     def distance_to_centers(self, point):
         return min(euclidean_distance(point, c) for c in self.centers)
 
-    '''Pokretanje algoritma — bira k tacaka kao centre'''
+    '''Pokretanje algoritma - bira k tacaka kao centre'''
     def fit(self, data):
         # Izaberi prvu tacku proizvoljno
         self.centers = [data[0][:]]
@@ -54,7 +54,7 @@ class FarthestFirstTraversal:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("FarthestFirstTraversal — test na podacima genske ekspresije")
+    print("FarthestFirstTraversal - test na podacima genske ekspresije")
     print("=" * 60)
 
     fft = FarthestFirstTraversal(k=3)

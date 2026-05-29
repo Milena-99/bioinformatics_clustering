@@ -1,5 +1,5 @@
 """
-Lloyd algoritam (K-means) — iterativno klasterovanje.
+Lloyd algoritam (K-means) - iterativno klasterovanje.
 
 Minimizuje kvadratnu gresku distorzije. Heuristika koja moze zaglaviti
 u lokalnom minimumu. Inicijalizacija centara: k-means++.
@@ -21,7 +21,7 @@ class KMeans:
         self.centers = []
         self.labels = []
 
-    '''k-means++ inicijalizacija centara — bira udaljene tacke sa verovatnocom ~ d^2'''
+    '''k-means++ inicijalizacija centara - bira udaljene tacke sa verovatnocom ~ d^2'''
     def init_centers(self, data):
         self.centers = [data[random.randint(0, len(data) - 1)][:]]
 
@@ -92,7 +92,7 @@ class KMeans:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("Lloyd algoritam (K-means) — test na podacima genske ekspresije")
+    print("Lloyd algoritam (K-means) - test na podacima genske ekspresije")
     print("=" * 60)
 
     random.seed(42)

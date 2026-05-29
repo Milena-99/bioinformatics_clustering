@@ -1,5 +1,5 @@
 """
-Louvain i Leiden — community detection algoritmi na grafu slicnosti.
+Louvain i Leiden - community detection algoritmi na grafu slicnosti.
 
 Geni se modeluju kao cvorovi grafa, a tezinske grane se povlace izmedu slicnih
 gena (npr. Pearsonova korelacija > prag). Cilj je particija koja maksimizuje
@@ -7,10 +7,10 @@ modularnost Q:
 
     Q = sum_c [ sum_in(c) / 2m  -  (sum_tot(c) / 2m)^2 ]
 
-Louvain — pohlepna lokalna optimizacija: za svaki cvor proba da ga premesti u
+Louvain - pohlepna lokalna optimizacija: za svaki cvor proba da ga premesti u
 zajednicu suseda, prihvata premestanje ako povecava Q.
 
-Leiden — popravlja Louvain dodajuci fazu precistavanja unutar zajednica
+Leiden - popravlja Louvain dodajuci fazu precistavanja unutar zajednica
 (sprecava odvajanje povezanih komponenti).
 """
 
@@ -49,7 +49,7 @@ class SimilarityGraph:
                 m2 += w
         return m2
 
-    '''Konstrukcija grafa iz matrice slicnosti — grane samo gde R > prag'''
+    '''Konstrukcija grafa iz matrice slicnosti - grane samo gde R > prag'''
     @staticmethod
     def from_similarity_matrix(R, threshold=0.0):
         G = SimilarityGraph()
@@ -92,7 +92,7 @@ class Louvain:
             Q += (inside / m2) - (total / m2) ** 2
         return Q
 
-    '''Jedan prolaz lokalne optimizacije: pomeraj cvor u susednu zajednicu sa najvecim ΔQ'''
+    '''Jedan prolaz lokalne optimizacije: pomeraj cvor u susednu zajednicu sa najvecim DeltaQ'''
     def local_optimization(self, G, P):
         changed_globally = False
         changed = True
@@ -211,7 +211,7 @@ class Leiden(Louvain):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("Louvain i Leiden — test na podacima genske ekspresije")
+    print("Louvain i Leiden - test na podacima genske ekspresije")
     print("=" * 60)
 
     for threshold in [0.3, 0.5, 0.7, 0.9]:
@@ -221,7 +221,7 @@ if __name__ == '__main__':
         # Louvain
         lv = Louvain(similarity_threshold=threshold)
         lv.fit(genes)
-        print(f"Louvain → Q = {lv.modularity_value:.4f}")
+        print(f"Louvain -> Q = {lv.modularity_value:.4f}")
 
         comm_groups = {}
         for i, z in enumerate(lv.labels(len(genes))):
@@ -232,7 +232,7 @@ if __name__ == '__main__':
         # Leiden
         ld = Leiden(similarity_threshold=threshold)
         ld.fit(genes)
-        print(f"\nLeiden  → Q = {ld.modularity_value:.4f}")
+        print(f"\nLeiden  -> Q = {ld.modularity_value:.4f}")
 
         comm_groups = {}
         for i, z in enumerate(ld.labels(len(genes))):

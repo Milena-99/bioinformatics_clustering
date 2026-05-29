@@ -94,7 +94,7 @@ class HierarchicalClustering:
         self.root = clusters[0]
         return self.root
 
-    '''Izdvajanje k klastera iz dendrograma — secenje stabla na najvisim cvorovima'''
+    '''Izdvajanje k klastera iz dendrograma - secenje stabla na najvisim cvorovima'''
     def extract_clusters(self, k):
         nodes = [self.root]
 
@@ -117,7 +117,7 @@ class HierarchicalClustering:
 
         return [c.elements for c in nodes]
 
-    '''Ispis dendrograma — redosled spajanja'''
+    '''Ispis dendrograma - redosled spajanja'''
     def print_dendrogram(self, names=None):
         for ci, cj, dist in self.history:
             if names:
@@ -139,7 +139,7 @@ class HierarchicalClustering:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("Hijerarhijsko klasterovanje — test na podacima genske ekspresije")
+    print("Hijerarhijsko klasterovanje - test na podacima genske ekspresije")
     print("=" * 60)
 
     D = compute_distance_matrix(genes)

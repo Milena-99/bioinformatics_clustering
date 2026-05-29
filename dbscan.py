@@ -2,7 +2,7 @@
 DBSCAN (Density-Based Spatial Clustering of Applications with Noise).
 
 Density-based algoritam koji pronalazi klastere proizvoljnog oblika i identifikuje
-sum (outlier-e). Broj klastera nije zadat — proizilazi iz strukture podataka i
+sum (outlier-e). Broj klastera nije zadat - proizilazi iz strukture podataka i
 parametara eps (radijus okoline) i min_pts (minimalan broj suseda).
 
 Tipovi tacaka:
@@ -44,7 +44,7 @@ class DBSCAN:
                 self.labels[q] = c
                 new_neighbors = self.eps_neighbors(q, data)
                 if len(new_neighbors) >= self.min_pts:
-                    # q je novi jezgreni cvor — prosiri front
+                    # q je novi jezgreni cvor - prosiri front
                     neighbors = neighbors + new_neighbors
 
             i += 1
@@ -80,7 +80,7 @@ class DBSCAN:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("DBSCAN — test na podacima genske ekspresije")
+    print("DBSCAN - test na podacima genske ekspresije")
     print("=" * 60)
 
     print("\nUticaj parametara eps i min_pts:")
@@ -91,7 +91,7 @@ if __name__ == '__main__':
         n_clusters = db.num_clusters()
         noise_idx = db.noise_points()
 
-        print(f"\neps={eps}, min_pts={min_pts}  →  {n_clusters} klastera, {len(noise_idx)} sum")
+        print(f"\neps={eps}, min_pts={min_pts}  ->  {n_clusters} klastera, {len(noise_idx)} sum")
 
         for cluster_id in range(1, n_clusters + 1):
             members = [gene_names[i] for i in range(len(genes)) if labels[i] == cluster_id]

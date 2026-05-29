@@ -47,7 +47,7 @@ def shorten(names_list, n=6):
 '''Pokretanje svih algoritama na istim podacima i formiranje tabele rezultata'''
 def run_all_on_genes():
     print("=" * 80)
-    print("UPOREDNI TEST: 10 gena kvasca × 7 vremenskih tacaka")
+    print("UPOREDNI TEST: 10 gena kvasca x 7 vremenskih tacaka")
     print("=" * 80)
 
     D = compute_distance_matrix(genes)
@@ -73,7 +73,7 @@ def run_all_on_genes():
     random.seed(42)
     skm = SoftKMeans(k=k, beta=2.0)
     skm.fit(genes)
-    results.append(("Meki K-means (β=2)",
+    results.append(("Meki K-means (beta=2)",
                     format_clusters(skm.hard_labels(), gene_names, k)))
 
     # 4. Hijerarhijsko (UPGMA)
@@ -93,7 +93,7 @@ def run_all_on_genes():
     cast.fit(data=genes)
     cast_labels = cast.labels(n)
     cast_k = max(cast_labels) + 1
-    results.append((f"CAST (θ=0.7, {cast_k} klastera)",
+    results.append((f"CAST (theta=0.7, {cast_k} klastera)",
                     format_clusters(cast_labels, gene_names, cast_k)))
 
     # 7. DBSCAN
@@ -193,7 +193,7 @@ def run_on_2d_points():
     # Hijerarhijsko UPGMA
     hc = HierarchicalClustering(method='avg')
     hc.fit(D)
-    print(f"\nHijerarhijsko UPGMA — redosled spajanja:")
+    print(f"\nHijerarhijsko UPGMA - redosled spajanja:")
     hc.print_dendrogram()
     clusters_3 = hc.extract_clusters(3)
     print(f"\n  3 klastera: {clusters_3}")
@@ -261,7 +261,7 @@ def correctness_summary():
     lv = Louvain(similarity_threshold=0.5)
     lv.fit(genes)
     lv_k = max(lv.labels(n)) + 1
-    tests.append(("Louvain (θ=0.5)", format_clusters(lv.labels(n), gene_names, lv_k)))
+    tests.append(("Louvain (theta=0.5)", format_clusters(lv.labels(n), gene_names, lv_k)))
 
     # Brute-force
     bfkm = BruteForceKMeans(k=k)
@@ -269,7 +269,7 @@ def correctness_summary():
     tests.append(("Brute-force K-means", format_clusters(bfkm.labels, gene_names, k)))
 
     for name, clusters in tests:
-        ok = "✓" if is_correct(clusters) else "✗"
+        ok = "[x]" if is_correct(clusters) else "[ ]"
         print(f"  {ok}  {name}")
 
     print(f"  Lloyd K-means: {km_correct}/5 seed-ova nasli tacnu particiju")

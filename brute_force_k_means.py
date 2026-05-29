@@ -1,13 +1,13 @@
 """
-Brute-force K-means — iscrpno trazenje optimuma (referenca za Lloyd algoritam).
+Brute-force K-means - iscrpno trazenje optimuma (referenca za Lloyd algoritam).
 
 Pretrazuje sve podskupove od k tacaka iz podataka kao kandidate za centre
 (C(n, k) kombinacija), bira onaj sa minimalnom distorzijom.
 
-Slozenost: O(C(n,k) · n · k · d). Prakticno samo za male n.
+Slozenost: O(C(n,k) * n * k * d). Prakticno samo za male n.
 
 Napomena: Lloyd algoritam koristi centroide (sredine klastera) koji ne moraju
-biti tacke iz podataka — pa Lloyd moze postici i manju distorziju od ove
+biti tacke iz podataka - pa Lloyd moze postici i manju distorziju od ove
 brute-force varijante. Ovo je u sustini k-medoids brute force.
 """
 
@@ -74,7 +74,7 @@ class BruteForceKMeans:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("Brute-force K-means — test na podacima genske ekspresije")
+    print("Brute-force K-means - test na podacima genske ekspresije")
     print("=" * 60)
 
     bfkm = BruteForceKMeans(k=3)

@@ -1,5 +1,5 @@
 """
-DIANA (Divisive Analysis) — top-down hijerarhijsko klasterovanje.
+DIANA (Divisive Analysis) - top-down hijerarhijsko klasterovanje.
 
 Komplementarni pristup aglomerativnom hijerarhijskom klasterovanju: umesto
 spajanja od dna nagore, DIANA deli klastere od korena nadole.
@@ -106,7 +106,7 @@ class DIANA:
 
         return chosen, max_d
 
-    '''Pokretanje DIANA algoritma — deljenje dok svi klasteri ne postanu singltoni'''
+    '''Pokretanje DIANA algoritma - deljenje dok svi klasteri ne postanu singltoni'''
     def fit(self, D):
         n = len(D)
         self.root = DCluster(list(range(n)))
@@ -133,7 +133,7 @@ class DIANA:
 
         return self.root
 
-    '''Izdvajanje k klastera iz dendrograma — secenje na najvisim podelama'''
+    '''Izdvajanje k klastera iz dendrograma - secenje na najvisim podelama'''
     def extract_clusters(self, k):
         nodes = [self.root]
 
@@ -176,7 +176,7 @@ class DIANA:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("DIANA — test na podacima genske ekspresije")
+    print("DIANA - test na podacima genske ekspresije")
     print("=" * 60)
 
     D = compute_distance_matrix(genes)

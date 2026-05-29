@@ -1,8 +1,8 @@
 """
-Meki K-means (Soft K-means) — EM pristup sa matricom odgovornosti.
+Meki K-means (Soft K-means) - EM pristup sa matricom odgovornosti.
 
 Za razliku od Lloyd algoritma koji kruto dodeljuje svaku tacku jednom klasteru,
-meki K-means dodeljuje odgovornosti (responsibilities) — koliko svaki klaster
+meki K-means dodeljuje odgovornosti (responsibilities) - koliko svaki klaster
 "privlaci" svaku tacku.
 
 E-korak: izracunaj matricu odgovornosti R_{ij} = exp(-beta * d_{ij}) / norm
@@ -21,7 +21,7 @@ class SoftKMeans:
         self.max_iter = max_iter
         self.tolerance = tolerance
         self.centers = []
-        self.responsibility_matrix = []   # k × n matrica (HiddenMatrix)
+        self.responsibility_matrix = []   # k x n matrica (HiddenMatrix)
 
     '''Inicijalizacija centara (k-means++)'''
     def init_centers(self, data):
@@ -42,7 +42,7 @@ class SoftKMeans:
                     self.centers.append(data[i][:])
                     break
 
-    '''E-korak: izracunaj matricu odgovornosti R (klaster × tacka)'''
+    '''E-korak: izracunaj matricu odgovornosti R (klaster x tacka)'''
     def e_step(self, data):
         n = len(data)
         self.responsibility_matrix = [[0.0] * n for _ in range(self.k)]
@@ -123,7 +123,7 @@ class SoftKMeans:
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("Meki K-means (EM) — test na podacima genske ekspresije")
+    print("Meki K-means (EM) - test na podacima genske ekspresije")
     print("=" * 60)
 
     random.seed(42)
@@ -133,13 +133,13 @@ if __name__ == '__main__':
     print(f"\nKonvergirao nakon {n_iter} iteracija (beta=2.0)\n")
 
     print("Matrica odgovornosti:")
-    print(f"{'Gen':<10} {'Kl.1':>8} {'Kl.2':>8} {'Kl.3':>8}  → Kruti label")
+    print(f"{'Gen':<10} {'Kl.1':>8} {'Kl.2':>8} {'Kl.3':>8}  -> Kruti label")
     print("-" * 55)
 
     hard = mkm.hard_labels()
     for j in range(len(genes)):
         resp = mkm.responsibilities(j)
-        print(f"{gene_names[j]:<10} {resp[0]:>8.4f} {resp[1]:>8.4f} {resp[2]:>8.4f}  → Klaster {hard[j] + 1}")
+        print(f"{gene_names[j]:<10} {resp[0]:>8.4f} {resp[1]:>8.4f} {resp[2]:>8.4f}  -> Klaster {hard[j] + 1}")
 
     print("\nUticaj parametra beta na krutost dodele (1.0 = potpuno kruto):")
     for beta in [0.5, 1.0, 2.0, 5.0, 10.0]:
@@ -153,4 +153,4 @@ if __name__ == '__main__':
             mean_max += max(resp)
         mean_max /= len(genes)
 
-        print(f"  beta={beta:<5.1f} → prosecna maks. odgovornost: {mean_max:.4f}")
+        print(f"  beta={beta:<5.1f} -> prosecna maks. odgovornost: {mean_max:.4f}")
