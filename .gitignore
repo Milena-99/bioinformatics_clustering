@@ -1,2 +1,14 @@
 __pycache__/
 *.pyc
+
+# quarantine (kandidati za brisanje)
+_ZA_BRISANJE/
+# Jupyter / LaTeX artefakti
+.ipynb_checkpoints/
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
